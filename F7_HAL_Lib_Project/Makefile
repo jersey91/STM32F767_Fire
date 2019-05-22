@@ -6,6 +6,6 @@ all:
 	cd Build && make -j
 	cd Build && cmake ..
 upload:
-	JLinkExe -Device STM32F765II -speed 4000 -if SWD -autoconnect 1 -CommanderScript ./flash.jlink
+	JLinkExe -Device STM32F767IG -speed 4000 -if SWD -autoconnect 1 -CommanderScript ./flash.jlink
 clean:
 	rm -rf Build

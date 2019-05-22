@@ -58,7 +58,6 @@
 #ifdef __cplusplus
   #include "led.h"
 #endif
-// #include "stm32756g_eval.h"
 
 
 /* Exported types ------------------------------------------------------------*/

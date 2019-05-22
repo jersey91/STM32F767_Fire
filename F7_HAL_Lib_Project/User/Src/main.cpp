@@ -99,9 +99,9 @@ int main(void)
   /* Configure LED1 and LED3 */
   // BSP_LED_Init(LED1);
   // BSP_LED_Init(LED3);
-  deng1.STM32_LED_Init(STM32_LED1);
-  deng1.STM32_LED_Init(STM32_LED2);
-  
+  DS0_Init();
+  DS1_Init();
+
   /* Init Device Library */
   USBD_Init(&USBD_Device, &VCP_Desc, 0);
   
@@ -125,18 +125,17 @@ int main(void)
     // Toggle_Leds();
     // HAL_UART_TxCpltCallback(&UartHandle);
     // HAL_UART_RxCpltCallback(&UartHandle);
-    deng1.STM32_LED_Toggle(STM32_LED1);
-    deng1.STM32_LED_Toggle(STM32_LED2);
 
+    DS0_On();
+    DS1_On();
     // Sendbuff(txbuff,sizeof(txbuff)-1);
-    HAL_Delay(100);
+    HAL_Delay(1000);
     //printf("Loop 100ms...\n");
-
-    t++;
-    if(t>254)t=0;
+    DS1_Off();
+    HAL_Delay(1000);
+    // t++;
+    // if(t>254)t=0;
     //printf("i vaule is = %d\n",t);
-
-
   }
 }
 void Sendbuff(uint8_t *pbuff,uint16_t length)              //Sendbuff(txbuff,sizeof(txbuff)-1);
